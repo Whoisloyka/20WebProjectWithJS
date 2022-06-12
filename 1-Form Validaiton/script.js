@@ -20,21 +20,55 @@ function showSuccess(input){
 }
 
 // Check valid Email
-function checkEmail(email){
+function checkEmail(input){
     const re =
   /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
-    return re.test(String(email).toLowerCase());
+    
+    if(re.test(input.value.trim())){
+        showSuccess(input);
+    } else {
+        showError(input, 'Email is not valid!')
+    }
 }
+
+// Check password match
+function checkPasswordMatch(input1, input2){
+    if(input1.value !== input2.value){
+        showError(input2), 'Passwords were not paged'
+    }
+}
+
 
 // Check required fields
 function checkRequired(inputArr){
     inputArr.forEach(
         function(input){
             if (input.value.trim() === ''){
+                console.log(input.id);
                 showError(input, `${getFieldName(input)} is required`);
+            } else {
+                showSuccess(input);
             }
         }
     )
+}
+
+// Gets upper case to first letter of the field
+function getFieldName(input){
+    var firstLetter = input.id.charAt(0).toUpperCase(); // inputun id'sinin ilk harfini akır ve büyütür.
+    var rest = input.id.slice(1); // inputun id'sinin ilk elemanı hariç harfleri alır getirir.
+    
+    return firstLetter + rest;
+}
+
+function checkLength(input, min, max){
+    if(input.value.length < min){
+        showError(input, `${getFieldName(input)} must be at least ${min} characters`);
+    } else if(input.value.length > max) {
+        showError(input, `${getFieldName(input)} must be less than ${max} characters`);
+    } else {
+        showSuccess(input)
+    }
 }
 
 
@@ -42,6 +76,10 @@ function checkRequired(inputArr){
 form.addEventListener('submit', function(e){
     e.preventDefault();
     checkRequired([username, email, password, password2]);
+    checkLength(username, 3, 18);
+    checkLength(password, 4, 21);
+    checkEmail(email);
+    checkPasswordMatch(password, password2);
 })
 
 
