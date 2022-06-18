@@ -10,6 +10,7 @@ populateUI();
 
 // Save selected movie index and price
 function setMovieData(movieIndex, moviePrice) {
+  //
   localStorage.setItem("selectedMovieIndex", movieIndex);
   localStorage.setItem("selectedMoviePrice", moviePrice);
 }
@@ -22,8 +23,10 @@ function updateSelectedCount() {
   //     return [...seats].indexOf(seat);
   //   });
   //   //? same thing with array function
+
   const seatsIndex = [...selectedSeats].map((seat) => [...seats].indexOf(seat));
 
+  // seçilen koltukları localStorage'da tutar.
   localStorage.setItem("selectedSeats", JSON.stringify(seatsIndex));
 
   const selectedSeatsCount = selectedSeats.length;
@@ -52,6 +55,7 @@ function populateUI() {
 }
 
 // Movie select evet
+// Seçilen filmi ve ücretini(value) localStorage'a kaydeder.
 movieSelect.addEventListener("change", (e) => {
   ticketPrice = +e.target.value;
   setMovieData(e.target.selectedIndex, e.target.value);
