@@ -10,7 +10,6 @@ toggle.addEventListener("click", () =>
 
 // Show Modal
 openn.addEventListener("click", () => modal.classList.add("show-modal"));
-
 // Hide Modal
 closee.addEventListener("click", () => modal.classList.remove("show-modal"));
 // Hide Modal on Outside Click
