@@ -128,6 +128,7 @@ h1 {
   position: absolute;
   bottom: -50px;
   transition: transform 1s ease;
+  display: none;
 }
 
 .notification-container p {
