@@ -92,14 +92,14 @@ h1 {
   box-shadow: 0 15px 10px 3px rgba(0, 0, 0, 0.3);
   padding: 4%;
   text-align: center;
-  /* position: absolute;
+  position: absolute;
   overflow: hidden;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%); */
-  /* max-width: 100%;
+  transform: translate(-50%, -50%);
+  max-width: 100%;
   width: 30%;
-  height: 20%; */
+  height: 20%;
 }
 
 .popup button {
@@ -127,8 +127,7 @@ h1 {
   padding: 15px 20px;
   position: absolute;
   bottom: -50px;
-  transition: transform 1s ease;
-  display: none;
+  transition: transform 1s ease-in-out;
 }
 
 .notification-container p {
