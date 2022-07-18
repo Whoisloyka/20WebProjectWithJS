@@ -127,7 +127,7 @@ h1 {
   padding: 15px 20px;
   position: absolute;
   bottom: -50px;
-  transition: transform 1s ease-in-out;
+  transition: transform 1s ease;
 }
 
 .notification-container p {
