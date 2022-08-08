@@ -1,0 +1,111 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #bbaa11;
+  color: #fff;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  margin: 0;
+}
+
+.container {
+  margin: auto;
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.flex {
+  display: flex;
+}
+
+input,
+button {
+  border: 1px solid #dedede;
+  /* border-radius: 0.5em; */
+  padding: 8px 10px;
+  font-size: 14px;
+  margin: 0;
+  border-top-left-radius: 0.35em;
+  border-bottom-left-radius: 0.35em;
+}
+
+input[type="text"] {
+  width: 300px;
+}
+
+.search-btn {
+  cursor: pointer;
+  border-left: 0;
+  border-radius: 0;
+
+  border-top-right-radius: 0.35em;
+  border-bottom-right-radius: 0.35em;
+}
+
+.random-btn {
+  cursor: pointer;
+  margin-left: 10px;
+  border-top-right-radius: 0.35em;
+  border-bottom-right-radius: 0.35em;
+}
+/* meal-info'ya tekrar bak hover özelliğini iyi kavra*/
+.meal-info {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-self: center;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.2s ease-in;
+  opacity: 0;
+}
+
+.meal:hover .meal-info {
+  opacity: 1;
+}
+
+@media (max-width: 800px) {
+}
+@media (max-width: 700px) {
+}
+@media (max-width: 500px) {
+  input[type="text"] {
+    width: 100%;
+  }
+}
+
+.meals {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 20px;
+  margin-top: 20px;
+}
+
+.meal {
+  cursor: pointer;
+  position: relative;
+  height: 250px;
+  width: 250px;
+  text-align: center;
+  box-shadow: 2px 2px 8px 4px #777;
+  border-radius: 0.5em;
+}
+
+.meal img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  border: 1px #fff solid;
+  border-radius: 0.5em;
+}

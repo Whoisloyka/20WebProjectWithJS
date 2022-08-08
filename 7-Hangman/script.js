@@ -215,7 +215,7 @@ function showNotification() {
 // Keydown letter press
 window.addEventListener("keydown", (e) => {
   if (playable) {
-    if (e.keyCode >= 65 && e.keyCode <= 90) {
+    if ((e.keyCode >= 65 && e.keyCode <= 90) || e.keyCode == 222) {
       const letter = e.key.toLowerCase();
 
       if (selectedWord.includes(letter)) {
