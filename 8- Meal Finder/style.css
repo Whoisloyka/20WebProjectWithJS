@@ -1,11 +1,11 @@
 * {
   box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+  /* margin: 0;
+  padding: 0; */
 }
 
 body {
-  background: #bbaa11;
+  background: #f2a900;
   color: #fff;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   margin: 0;
@@ -23,6 +23,7 @@ body {
 
 .flex {
   display: flex;
+  /* margin-top: 10px; */
 }
 
 input,
@@ -55,35 +56,6 @@ input[type="text"] {
   border-top-right-radius: 0.35em;
   border-bottom-right-radius: 0.35em;
 }
-/* meal-info'ya tekrar bak hover özelliğini iyi kavra*/
-.meal-info {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  background: rgba(0, 0, 0, 0.7);
-  display: flex;
-  align-self: center;
-  align-items: center;
-  justify-content: center;
-  transition: opacity 0.2s ease-in;
-  opacity: 0;
-}
-
-.meal:hover .meal-info {
-  opacity: 1;
-}
-
-@media (max-width: 800px) {
-}
-@media (max-width: 700px) {
-}
-@media (max-width: 500px) {
-  input[type="text"] {
-    width: 100%;
-  }
-}
 
 .meals {
   display: grid;
@@ -108,4 +80,91 @@ input[type="text"] {
   height: 100%;
   border: 1px #fff solid;
   border-radius: 0.5em;
+}
+
+/* meal-info'ya tekrar bak hover özelliğini iyi kavra*/
+.meal-info {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-self: center;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.2s ease-in;
+  opacity: 0;
+}
+
+.meal:hover .meal-info {
+  opacity: 1;
+}
+
+.single-meal {
+  margin: 4em auto;
+  width: 70%;
+}
+
+.single-meal img {
+  width: 300px;
+  margin: 15px;
+  border: 3px #fff solid;
+  border-radius: 0.5em;
+}
+
+.single-meal-info {
+  margin: 1em;
+  padding: 2em;
+  border: 2px black dashed;
+  border-radius: 5px;
+}
+
+.single-meal p {
+  margin: 0;
+  letter-spacing: 0.5px;
+  line-height: 1.5;
+}
+
+.single-meal ul {
+  padding-left: 0;
+  list-style-type: none;
+}
+
+.single-meal ul li {
+  border: 1px solid #ededed;
+  border-radius: 5px;
+  background-color: #fff;
+  display: inline-block;
+  color: #2d2013;
+  font-size: 14px;
+  padding: 5px 3px;
+  margin: 3px 3px;
+}
+
+@media (max-width: 800px) {
+  .meals {
+    grid-template-columns: repeat(3, 1fr) !important;
+  }
+  .meal {
+    cursor: pointer;
+    position: relative;
+    height: 150px !important;
+    width: 150px !important;
+    text-align: center;
+    box-shadow: 2px 2px 8px 4px #777;
+    border-radius: 0.5em;
+  }
+}
+@media (max-width: 700px) {
+}
+@media (max-width: 500px) {
+  input[type="text"] {
+    width: 100%;
+  }
+  .meals {
+    display: flex !important;
+    flex-direction: column;
+  }
 }
