@@ -80,7 +80,7 @@ const addMealToDOM = (meal) => {
   for (let i = 1; i <= 20; i++) {
     if (meal[`strIngredient${i}`]) {
       ingredients.push(
-        `${meal[`strIngredient${i}`]} - ${meal[`strMeasure${i}`]}`
+        `${meal[`strIngredient${i}`]}  ${meal[` - strMeasure${i}`]}`
       )
     } else {
       break
