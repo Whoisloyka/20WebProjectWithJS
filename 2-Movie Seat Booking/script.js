@@ -1,66 +1,66 @@
-const container = document.querySelector(".container");
-const seats = document.querySelectorAll(".row .seat:not(.occupied)"); // put them in a node list which is similiar to arrays so that we can run methods on it as if it were an array.
-const seat = document.querySelector(".seat");
-const total = document.getElementById("total");
-const movieSelect = document.getElementById("movie");
+const container = document.querySelector(".container")
+const seats = document.querySelectorAll(".row .seat:not(.occupied)") // put them in a node list which is similiar to arrays so that we can run methods on it as if it were an array.
+const seat = document.querySelector(".seat")
+const total = document.getElementById("total")
+const movieSelect = document.getElementById("movie")
 
-let ticketPrice = +movieSelect.value; // adding at the beginning to a "+" is conver the type Number.
+let ticketPrice = +movieSelect.value // adding at the beginning to a "+" is conver the type Number.
 
-populateUI();
+populateUI()
 
 // Save selected movie index and price
 function setMovieData(movieIndex, moviePrice) {
   //
-  localStorage.setItem("selectedMovieIndex", movieIndex);
-  localStorage.setItem("selectedMoviePrice", moviePrice);
+  localStorage.setItem("selectedMovieIndex", movieIndex)
+  localStorage.setItem("selectedMoviePrice", moviePrice)
 }
 
 // Update total and count
 function updateSelectedCount() {
-  const selectedSeats = document.querySelectorAll(".row .seat.selected");
+  const selectedSeats = document.querySelectorAll(".row .seat.selected")
 
   //   const seatsIndex = [...selectedSeats].map(function (seat) {
   //     return [...seats].indexOf(seat);
   //   });
   //   //? same thing with array function
 
-  const seatsIndex = [...selectedSeats].map((seat) => [...seats].indexOf(seat));
+  const seatsIndex = [...selectedSeats].map((seat) => [...seats].indexOf(seat))
 
   // seçilen koltukları localStorage'da tutar.
-  localStorage.setItem("selectedSeats", JSON.stringify(seatsIndex));
+  localStorage.setItem("selectedSeats", JSON.stringify(seatsIndex))
 
-  const selectedSeatsCount = selectedSeats.length;
+  const selectedSeatsCount = selectedSeats.length
 
-  count.innerText = selectedSeatsCount;
-  total.innerText = selectedSeatsCount * ticketPrice;
+  count.innerText = selectedSeatsCount
+  total.innerText = selectedSeatsCount * ticketPrice
 }
 
 // Get data from localStorage and populate UI
 function populateUI() {
-  const selectedSeats = JSON.parse(localStorage.getItem("selectedSeats"));
+  const selectedSeats = JSON.parse(localStorage.getItem("selectedSeats"))
 
   if (selectedSeats !== null && selectedSeats.length > 0) {
     seats.forEach((seat, index) => {
       if (selectedSeats.indexOf(index) > -1) {
-        seat.classList.add("selected");
+        seat.classList.add("selected")
       }
-    });
+    })
   }
 
-  const selectedMovieIndex = localStorage.getItem("selectedMovieIndex");
+  const selectedMovieIndex = localStorage.getItem("selectedMovieIndex")
 
   if (selectedMovieIndex !== null) {
-    movieSelect.selectedIndex = selectedMovieIndex;
+    movieSelect.selectedIndex = selectedMovieIndex
   }
 }
 
 // Movie select evet
 // Seçilen filmi ve ücretini(value) localStorage'a kaydeder.
 movieSelect.addEventListener("change", (e) => {
-  ticketPrice = +e.target.value;
-  setMovieData(e.target.selectedIndex, e.target.value);
-  updateSelectedCount();
-});
+  ticketPrice = +e.target.value
+  setMovieData(e.target.selectedIndex, e.target.value)
+  updateSelectedCount()
+})
 
 // Seat click event
 container.addEventListener("click", (e) => {
@@ -68,11 +68,11 @@ container.addEventListener("click", (e) => {
     e.target.classList.contains("seat") &&
     !e.target.classList.contains("occupied")
   ) {
-    e.target.classList.toggle("selected");
+    e.target.classList.toggle("selected")
   }
 
-  updateSelectedCount();
-});
+  updateSelectedCount()
+})
 
 // Initial count and total set
-updateSelectedCount();
+updateSelectedCount()
